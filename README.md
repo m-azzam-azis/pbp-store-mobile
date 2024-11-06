@@ -1,6 +1,6 @@
 # pbp_store_mobile
 
-## pbp-tugas6
+## pbp-tugas7
 
 Agar README tidak terlalu panjang, jawaban tiap tugas saya taruh di branch `tugas<i>` dengan i nomor tugas
 
