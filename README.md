@@ -1,42 +1,42 @@
 # pbp_store_mobile
 
-## pbp-tugas6
+## pbp-tugas8
 
-Agar README tidak terlalu panjang, jawaban tiap tugas saya taruh di branch `tugas<i>` dengan i nomor tugas
+Agar README tidak terlalu panjang, jawaban tiap tugas saya taruh di branch `tugas<i>` dengan i nomor tugas.
 
 #### Jawaban Pertanyaan:
 
-# Elemen Dasar Flutter
+# Flutter Navigation, Layouts, Forms, and Input Elements
 
-## Apa yang dimaksud dengan stateless widget dan stateful widget, dan jelaskan perbedaan dari keduanya.
+## Penggunaan `const` di flutter
 
-- **Stateless Widget**: Widget yang tidak memiliki state atau kondisi yang berubah setelah widget dibuat. Karena sifatnya tetap, tampilan stateless widget hanya dirender sekali dan tidak berubah kecuali widget diinisialisasi ulang. Contohnya adalah Text, Icon, dan widget sederhana lainnya.
-- **Stateful Widget**: Widget yang memiliki state dan dapat berubah selama siklus hidup widget. Widget ini memungkinkan perubahan tampilan berdasarkan kondisi yang berbeda, yang dapat diperbarui menggunakan setState(). Contoh: Checkbox, Slider, dan Form.
-- **Perbedaan Utama**: Stateless widget bersifat statis dan tidak dapat berubah, sedangkan stateful widget dinamis dan dapat berubah sesuai event yang terjadi.
+### Apa kegunaan `const` di Flutter?
 
-## Sebutkan widget apa saja yang kamu gunakan pada proyek ini dan jelaskan fungsinya.
+`const` di Flutter digunakan untuk mendefinisikan nilai tetap/konstan yang sudah diketahui saat kompilasi.
 
-- **MaterialApp**: Mengelola keseluruhan aplikasi dan memberikan tema, rute, dan navigasi.
-- **Scaffold**: Struktur dasar aplikasi, menyediakan struktur untuk AppBar, body, dan floating action button.
-- **AppBar**: Header pada bagian atas aplikasi yang menampilkan judul.
-- **IconButton**: Tombol yang berisi ikon, digunakan untuk aksi seperti Lihat Daftar Produk, Tambah Produk, dan Logout.
-- **Snackbar**: Widget pop-up sementara yang memberikan notifikasi atau pesan kepada pengguna.
-- **Container**: Digunakan untuk menata dan memberi padding pada widget.
+### Keuntungan Menggunakan `const`
 
-## Apa fungsi dari setState()? Jelaskan variabel apa saja yang dapat terdampak dengan fungsi tersebut.
+Keuntungannya adalah meningkatkan efisiensi waktu dan memori karena Flutter tidak perlu merender ulang elemen yang konstan.
 
-Fungsi setState() digunakan untuk memberi tahu Flutter bahwa ada perubahan state pada widget, sehingga widget perlu diperbarui dan dirender ulang. Variabel yang terdampak adalah semua variabel yang ditentukan di dalam kelas State dan digunakan dalam proses rendering widget. Dengan setState(), tampilan aplikasi dapat berubah dinamis sesuai dengan perubahan variabel state.
+### dan Kapan Sebaiknya Digunakan?
 
-## Jelaskan perbedaan antara const dengan final.
+`const` sebaiknya digunakan untuk elemen yang tidak berubah selama aplikasi berjalan, seperti teks statis atau ikon. Tidak cocok digunakan jika elemen yg dirender dinamis seperti form atau infocard.
 
-- **const**: Digunakan untuk nilai yang tetap dan konstan pada waktu kompilasi. Nilai ini harus diketahui saat kode ditulis, tidak dapat diubah setelah ditentukan.
-- **final**: Digunakan untuk nilai yang hanya bisa diinisialisasi sekali, namun nilainya bisa ditentukan di runtime, bukan harus di compile-time.
+## Jelaskan dan Bandingkan Penggunaan `Column` dan `Row` pada Flutter.
 
-## Jelaskan bagaimana cara kamu mengimplementasikan checklist-checklist di atas.
+`Column` dan `Row` merupakan sama-sama widget tata letak (_layout_). Keduanya mengatur posisi dan ukuran anak-anak widget di layar.
 
-1. **Buat aplikasi baru**: menggunakan flutter create pbp_store_mobile
-2. **Tiga Tombol Sederhana**: Dibuat menggunakan IconButton dalam Column di dalam Scaffold.
-3. **Warna-Warna Tombol Berbeda**: Setiap tombol memiliki warna berbeda menggunakan atribut color pada IconButton.
-4. **Snackbar Pesan**: Menggunakan ScaffoldMessenger.of(context).showSnackBar() untuk menampilkan Snackbar saat tombol ditekan.
-5. **Menambah Interaksi Pada Tombol**: Menggunakan onPressed pada setiap tombol untuk memunculkan Snackbar dengan pesan yang sesuai.
-6. **Menerapkan Stateless dan Stateful Widgets**: Struktur dasar aplikasi menggunakan widget stateless, sedangkan widget interaktif (seperti tombol) menggunakan stateful widget jika ada kondisi yang bisa berubah.
+- **Column:** untuk menyusun widget lain secara **vertikal**
+- **Row:** untuk menyusun widget lain secara **horizontal**
+
+## Elemen Input yang Digunakan pada Form
+
+Pada tugas ini, elemen input yang digunakan adalah `TextField` untuk teks dan `ElevatedButton` untuk aksi submit. Elemen input lain seperti Checkbox, Radio, dan Dropdown belum digunakan untuk tugas ini.
+
+## Cara Mengatur Tema Aplikasi agar Konsisten
+
+Tema aplikasi diatur melalui `ThemeData`, yang memungkinkan penggunaan warna, font, dan gaya secara konsisten di seluruh aplikasi. Pada aplikasi ini, beberapa tema sudah diterapkan dalam main.dart, seperti warna dan material3.
+
+## Cara Menangani Navigasi dalam Aplikasi Multi-Halaman
+
+Navigasi dilakukan menggunakan `Navigator`, yang memungkinkan berpindah antar halaman dengan `push` dan `pop`. Dengan ini, aplikasi dapat berpindah halaman dengan mulus dan tetap menjaga urutan halaman.
