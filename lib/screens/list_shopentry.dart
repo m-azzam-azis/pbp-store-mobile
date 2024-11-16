@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pbp_store_mobile/models/shop_entry.dart';
+import 'package:pbp_store_mobile/screens/shopentry_detail_page.dart';
 import 'package:pbp_store_mobile/widgets/left_drawer.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
@@ -54,76 +55,53 @@ class _ShopEntryPageState extends State<ShopEntryPage> {
                 ),
                 itemBuilder: (_, index) {
                   final shopEntry = snapshot.data![index];
-                  return Container(
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: const Offset(0, 3),
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ShopEntryDetailsPage(product: shopEntry),
                         ),
-                      ],
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            shopEntry.fields.name,
-                            style: const TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Price: \$${shopEntry.fields.price}",
-                                style: const TextStyle(
-                                  fontSize: 16.0,
-                                  color: Colors.green,
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                    size: 18,
-                                  ),
-                                  Text(
-                                    "${shopEntry.fields.rating}",
-                                    style: const TextStyle(fontSize: 16.0),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            "Sold: ${shopEntry.fields.sold}",
-                            style: const TextStyle(
-                              fontSize: 16.0,
-                              color: Colors.blueGrey,
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            shopEntry.fields.description,
-                            style: const TextStyle(
-                              fontSize: 14.0,
-                              color: Colors.black54,
-                            ),
+                      );
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 8),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: const Offset(0, 3),
                           ),
                         ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              shopEntry.fields.name,
+                              style: const TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              "Price: \$${shopEntry.fields.price}",
+                              style: const TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.green,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   );
