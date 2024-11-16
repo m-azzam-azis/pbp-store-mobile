@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pbp_store_mobile/screens/menu.dart';
 import 'package:pbp_store_mobile/screens/shopentry_form.dart';
+import 'package:pbp_store_mobile/screens/list_shopentry.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -51,15 +52,25 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.mood),
+            leading: const Icon(Icons.add),
             title: const Text('Tambah Produk'),
-            // Bagian redirection ke MoodEntryFormPage
+            // Bagian redirection ke SHopEntryFormPage
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const ShopEntryFormPage(),
                 ),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.add_reaction_rounded),
+            title: const Text('Daftar Shop Entry'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ShopEntryPage()),
               );
             },
           ),
